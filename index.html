@@ -83,6 +83,20 @@
             margin-top: 10px;
             
         }
+
+        #botao {
+            
+          background-color: white;
+          color: black;
+          border: 2px solid black;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-radius: 5px;
+   
+        }
+        
         #counter {
             font-size: 21px;
             margin-top: 15px;
@@ -98,7 +112,7 @@
                 <div class="flip-box-front">
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczP6ZVV2vnp1ioZDDr1BQMk-KfwBHGpNSJNlg2YxsuZsTli2CSchOi_L2I7JcO8uxCr_jQ2yOisix3HU805ZikOXRZK0GkKqRq1HzcG2Hqs9Af1m41W9zJzUECXy3FdSvMHf5mef01Xf1imdaPYhtc-GCw=w861-h950-s-no-gm?authuser=0" alt="">
                 </div>
-                <div class="flip-box-back">
+                <div class="flip-box-back" id="texto">
                     Por muitos outros dias com você, meu amor❤
                 </div>
             </div>
@@ -109,6 +123,9 @@
         </div>
         <h4>Juntos há:</h4>
         <div id="counter"></div>
+    </div>
+    <div>
+        <button id="botao"></button>  
     </div>
 
     <script>
@@ -135,6 +152,19 @@ function updateCounter() {
 setInterval(updateCounter, 1000);
 
 updateCounter();
+
+let estado = 0;
+
+    function alternarTexto() {
+      estado = 1 - estado; // alterna entre 0 e 1
+
+      const textoDiv = document.getElementById("texto");
+      if (estado === 0) {
+        textoDiv.textContent = "Por muitos outros dias com você, meu amor❤";
+      } else {
+        textoDiv.textContent = "Manda foto do peito❤";
+      }
+    }        
 
     </script>
 </body>
