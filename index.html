@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Dias com meu amorzinho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(360deg, rgb(33, 1, 55), #5c0b95);
+            margin: 0;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 10px 17px 22px 2px black;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .photo-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 5px;
+            perspective: 1000px;
+        }
+
+        .flip-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .flip-box.flip {
+            transform: rotateY(180deg);
+        }
+
+        .flip-box-front, .flip-box-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .flip-box-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        
+        }
+
+        .flip-box-back {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-family: 'Dancing Script', cursive;
+            color: #d73131;
+            transform: rotateY(180deg);
+            border-radius: 8px;
+            box-shadow: 2px 4px 10px #000000;
+            padding: 10px;
+        }
+        
+        .cuzinho{
+
+            margin-top: 10px;
+            
+        }
+        #counter {
+            font-size: 21px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #d73131;
+        }
+    </style>
+</head>
+<body>
+    <div class="polaroid">
+        <div class="photo-container" onclick="flipImage()">
+            <div class="flip-box" id="flipBox">
+                <div class="flip-box-front">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczP6ZVV2vnp1ioZDDr1BQMk-KfwBHGpNSJNlg2YxsuZsTli2CSchOi_L2I7JcO8uxCr_jQ2yOisix3HU805ZikOXRZK0GkKqRq1HzcG2Hqs9Af1m41W9zJzUECXy3FdSvMHf5mef01Xf1imdaPYhtc-GCw=w861-h950-s-no-gm?authuser=0" alt="">
+                </div>
+                <div class="flip-box-back">
+                    Feliz Aniversário! Por muitos outros anos com você, meu amor❤
+                </div>
+            </div>
+        </div>
+
+        <div class="cuzinho">
+            <h1>Jam e Nanda❤</h1>
+        </div>
+        <h4>Juntos há:</h4>
+        <div id="counter"></div>
+    </div>
+
+    <script>
+        function flipImage() {
+            document.getElementById("flipBox").classList.toggle("flip");
+        }
+
+        // Data inicial: 02/12/2024 de 13:00 e uns quebrados
+const startDate = new Date("2024-12-02T13:00:00").getTime();
+
+function updateCounter() {
+    const now = new Date().getTime();
+    const elapsedTime = now - startDate;
+
+    const days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+    document.getElementById("counter").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateCounter, 1000);
+
+updateCounter();
+
+    </script>
+</body>
+</html>
